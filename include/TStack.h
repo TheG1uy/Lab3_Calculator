@@ -6,6 +6,7 @@ private:
 	T *mas;
 public :
 	TStack(int _MaxSize=100){
+		if (_MaxSize < 0) throw _MaxSize;
 		size=0;
 		MaxSize=_MaxSize;
 		mas=new T[MaxSize];
