@@ -91,3 +91,27 @@ TEST(TCalculate, can_multiply_double_with_double)
 	a.GoToPostfix();
 	EXPECT_EQ(5.5, a.GoToCalculate());
 }
+TEST(TCalculate, cant_introduce_wrong_string_exp_1)
+{
+	TCalculator a;
+	a.setInfix("2.2-+2");
+	EXPECT_EQ(false, a.GoToPostfix());
+}
+TEST(TCalculate, cant_introduce_wrong_string_exp_2)
+{
+	TCalculator a;
+	a.setInfix("2.2-/2--2");
+	EXPECT_EQ(false, a.GoToPostfix());
+}
+TEST(TCalculate, cant_introduce_wrong_string_exp_3)
+{
+	TCalculator a;
+	a.setInfix("(2.2-2-))2");
+	EXPECT_EQ(false, a.GoToPostfix());
+}
+TEST(TCalculate, can_introduce_well_string)
+{
+	TCalculator a;
+	a.setInfix("2.2+2-2+1");
+	EXPECT_EQ(true, a.GoToPostfix());
+}

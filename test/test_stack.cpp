@@ -13,6 +13,14 @@ TEST(TStack, cant_create_stack_with_negative_length)
   ASSERT_ANY_THROW(TStack<double>(-1));
 }
 
+TEST(TStack, can_copy_stack)
+{
+	TStack<double> a;
+	a.clear();
+	a.push(5);
+
+    EXPECT_NO_THROW(TStack<double> b(a));
+}
 TEST(TStack, cant_take_elem_in_empty_stack)
 {
 	TStack<double> a;

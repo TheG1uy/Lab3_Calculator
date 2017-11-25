@@ -163,11 +163,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\Headers\Calculator.cpp"
+				RelativePath="..\..\include\calculator.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Headers\Main.cpp"
+				RelativePath="..\..\include\Main.cpp"
 				>
 			</File>
 		</Filter>
@@ -177,11 +177,11 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\Headers\Calculator.h"
+				RelativePath="..\..\include\Calculator.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Headers\TStack.h"
+				RelativePath="..\..\include\TStack.h"
 				>
 			</File>
 		</Filter>

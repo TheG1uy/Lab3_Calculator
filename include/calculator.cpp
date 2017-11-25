@@ -41,11 +41,12 @@ bool TCalculator::GoToPostfix(){
 		 postfix += " ";
 		 while (priority(stc.top()) >= priority(tmp[i])) 
 		    postfix += stc.pop();
-	
+
 		 stc.push(tmp[i]);
 		 postfix += " ";
 	 }
 	 }
+ postfix += " ";
  return true;
  }
 double TCalculator::GoToCalculate() {
@@ -104,5 +105,5 @@ double TCalculator::GoToCalculate() {
            
 	}
 	
-	return Result;
+	return std.pop();
 }
