@@ -1,12 +1,13 @@
 #include "Calculator.h"
 #include <cmath>
 bool TCalculator::checkInfix(){
-	int Rbracket=0,Lbracket=0;
+	int bracket=0;
 	for(int i=0;i<infix.size();i++)
-        if (infix[i]=='(') Rbracket++;
-		else if (infix[i]==')') Lbracket++;
+        if (infix[i]=='(') bracket++;
+		else if (infix[i]==')') bracket--;
+		else if (bracket<0) return false;
 		else if (i && isZnak(i) && isZnak(i-1) ) return false;
-	if (Rbracket!=Lbracket) return false;
+	if (bracket) return false;
 	return true;
 }
 bool TCalculator::isZnak(int i){
@@ -16,6 +17,7 @@ bool TCalculator::isZnak(int i){
 bool TCalculator::GoToPostfix(){
  postfix="";
  stc.clear();
+ stc.push(0);
  string tmp="("+infix+")";
  if (!checkInfix()) return false;
  for(int i=0;i<tmp.size();i++){
@@ -92,11 +94,9 @@ double TCalculator::GoToCalculate() {
 			}
 				break;
 			case '^':
-				int a= std.pop();
+				double a= std.pop();
 				Result = std.pop();
-				double osn = Result;
-				for (int i = 1; i < a; i++)
-					Result *= osn;
+				Result =exp(a*log(Result));
 				break;
 			}
 

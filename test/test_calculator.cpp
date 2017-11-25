@@ -1,6 +1,7 @@
 #include "Calculator.h"
 #include "Calculator.cpp"
 #include <gtest.h>
+
 TEST(TCalculate, get_no_throw_when_try_transform_infix_in_postfix)
 {
 	TCalculator a;
@@ -41,7 +42,8 @@ TEST(TCalculate, can_elevate_elem)
 	TCalculator a;
 	a.setInfix("2^3");
 	a.GoToPostfix();
-	EXPECT_EQ(8, a.GoToCalculate());
+
+	EXPECT_EQ(8, (float)a.GoToCalculate());
 }
 TEST(TCalculate, can_elevate_elem_and_add_it_to_another)
 {
@@ -62,7 +64,7 @@ TEST(TCalculate, can_count_large_expression)
 	TCalculator a;
 	a.setInfix("(2+3)*2-3^2+3!");
 	a.GoToPostfix();
-	EXPECT_EQ(7, a.GoToCalculate());
+	EXPECT_EQ(7, (float)a.GoToCalculate());
 }
 TEST(TCalculate, can_add_int_to_double)
 {
